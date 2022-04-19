@@ -17,7 +17,7 @@ class Sked extends StatelessWidget {
     return Obx(() => WillPopScope(
           child: Scaffold(
             appBar: AppBar(
-              title: const Text('Новая запись'),
+              title: const Text('Опись # '),
               automaticallyImplyLeading: true,
             ),
             body: Column(
@@ -34,7 +34,7 @@ class Sked extends StatelessWidget {
                         child: Container(
                           child: Padding(
                             padding: const EdgeInsets.all(20.0),
-                            child: Text(appController.operatorName.value,
+                            child: Text(skedController.sked.value.operator_name ?? '',
                                 style: const TextStyle(fontSize: 20)),
                           ),
                         ),

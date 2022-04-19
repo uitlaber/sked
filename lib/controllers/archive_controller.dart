@@ -11,7 +11,7 @@ class ArchiveController extends GetxController {
   var query = ''.obs;
   TextEditingController searchController = TextEditingController();
   RxInt page = 1.obs;
-  RxInt perPage = 20.obs;
+  RxInt perPage = 2.obs;
   RxInt total = 0.obs;
   RxBool enableSelect = false.obs;
   RxList selected = [].obs;
@@ -95,7 +95,9 @@ class ArchiveController extends GetxController {
   }
 
   void deleteSked(int id) async {
-    print('deleted $id');
+    if (kDebugMode) {
+      print('deleted $id');
+    }
     await Sked().select().id.equals(id).delete();
   }
 

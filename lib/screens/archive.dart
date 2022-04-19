@@ -96,10 +96,6 @@ class Archive extends StatelessWidget {
           icon: Icon(Icons.upload),
           label: 'экспорт',
         ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'настройка экспорта',
-        ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.check),
           label: (!controller.enableSelect.value)

@@ -2,21 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:sked/models/model.dart';
 
-class SkedController extends GetxController {
-  List selectedClient = [].obs;
 
+class SkedController extends GetxController {
+  var sked = Sked().obs;
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
-
-    await Sked(
-            client_name: 'Андрей',
-            operator_name: 'Олег',
-            work_type: 1,
-            data_type: 1,
-            is_sended: false)
-        .save();
+    final id = int.tryParse(Get.parameters['id']??'');
+    if(id != null){
+      sked.value = await Sked().getById(id)??Sked();
+    }
   }
 
   void onTapAction(int index) {
